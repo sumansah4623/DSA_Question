@@ -1,0 +1,52 @@
+//Approach : Using Array
+//time complexity : O(n)
+//space complexity : O(26)
+// class Solution 
+// {
+// public:
+//     char repeatedCharacter(string s) 
+//     {
+//         vector<int> array(26);
+
+//         for(int i = 0; i<s.length(); i++)
+//         {
+//             array[s[i] - 'a']++;
+
+//             if(array[s[i] - 'a'] == 2)
+//             {
+//                 return s[i];
+//             }
+//         }
+
+           // Return a null character in case of no repetition 
+           //(although the problem assumes at least one repetition)
+//         return '\0';
+//     }
+// };
+
+
+
+// Approach : Using HashMap
+// time complexity : O(n)
+// space complexity : O(26)
+class Solution 
+{
+public:
+    char repeatedCharacter(string s) 
+    {
+        unordered_map<char, int> mp;
+
+        //iterate each char of string
+        for(int i = 0; i<s.length(); i++)
+        {
+            mp[s[i]] = mp[s[i]] + 1;
+
+            if(mp[s[i]] == 2)
+            {
+                return s[i];
+            }
+        }
+        
+        return '\0';
+    }
+};
